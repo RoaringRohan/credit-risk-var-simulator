@@ -1,0 +1,7 @@
+# Derived from the notebook's own imports. No solver needed - this is
+# Monte Carlo simulation and quantile estimation, all NumPy/SciPy.
+
+numpy
+pandas
+scipy          # sparse matrices, ndtri for credit-state boundaries, gaussian_kde
+matplotlib

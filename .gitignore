@@ -1,0 +1,14 @@
+# Input data and cached scenarios - see the README for what the notebook expects
+*.csv
+*.npz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
