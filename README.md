@@ -6,6 +6,12 @@ question: **how wrong is the normal approximation when you use it to size a tail
 The answer, at the 99.9% level, is that it reports about **60% of the real loss** — and the
 simulation is structured to demonstrate exactly that rather than assert it.
 
+![Simulated loss distribution for the value-weighted portfolio against the normal approximation fitted to the same mean and variance, with the 99% and 99.9% VaR and CVaR marked](assets/loss-distribution-vs-normal.png)
+
+*Portfolio 1's simulated loss distribution against a normal fitted to the same mean and variance. The
+histogram is skewed hard right with a long thin tail; the red curve is symmetric and ends well short
+of the 99.9% markers it is supposed to cover.*
+
 ## How it works
 
 Each counterparty holds a credit rating across 8 states (AAA down to default) and can migrate
@@ -77,6 +83,17 @@ asked about.
 
 Monte Carlo, by contrast, lands within about 1% of the reference at every level.
 
+![Tail densities on a logarithmic scale: out-of-sample, both Monte Carlo budgets and the normal approximation, above the 95th percentile of loss](assets/tail-risk-method-comparison.png)
+
+*The same failure on a log scale, above the 95th percentile. Both Monte Carlo densities track the
+reference across the whole tail. The normal approximation falls away from it exponentially — by the
+far tail it is understating the density by more than ten orders of magnitude.*
+
+![Histograms of losses beyond the 95th percentile for the out-of-sample reference and both Monte Carlo budgets, with the normal approximation overlaid](assets/extreme-tail-comparison.png)
+
+*Losses beyond the 95th percentile, the region the capital number is read from. The three simulated
+tails overlap; the normal curve is already at the floor where they still carry most of their mass.*
+
 ### Sampling error is measured, not assumed
 
 The in-sample estimators were re-run across **100 independent trials** and the standard deviation of
@@ -118,7 +135,8 @@ reuses that file on later runs if it exists.
 
 **All 12 plots and every result table are committed with the notebook**, so the full study —
 loss distributions per portfolio, the KDE-versus-empirical overlay, and the sampling-error tables —
-renders on GitHub without running anything.
+renders on GitHub without running anything. The three figures above are taken from that committed
+output and also live in `assets/`.
 
 ## What I would do next
 
